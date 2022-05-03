@@ -1,0 +1,23 @@
+{
+  "linterApp": {
+    "charts": {
+      "home": {
+        "title": "Charts",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Charts",
+        "createOrEditLabel": "Создать или отредактировать Charts",
+        "notFound": "Charts не найдено"
+      },
+      "created": "Новый Charts создан с идентификатором {{ param }}",
+      "updated": "Charts обновлен с идентификатором {{ param }}",
+      "deleted": "Charts удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Charts {{ id }}?"
+      },
+      "detail": {
+        "title": "Charts"
+      },
+      "id": "ID"
+    }
+  }
+}
