@@ -1,3 +1,45 @@
+<style>
+  .image-video-wrp figure {
+    position: relative;
+    margin: 0;
+  }
+
+  .image-video-wrp figure .thumblin {
+    height: 265px;
+    object-fit: cover;
+    width: 450px;
+    border: 2px solid #000;
+    align-items: end;
+  }
+
+  .image-video-wrp figure iframe {
+    height: 265px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .play-icon-box {
+    position: absolute;
+    right: 25px;
+    bottom: -20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #fff;
+    box-shadow: 0px 3px 6px #00000029;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .play-icon-box img {
+    position: relative;
+    left: 2px;
+  }
+</style>
 <div class="row">
   <div class="col-md-3">
     <span class="hipster img-fluid rounded"></span>
@@ -7,7 +49,6 @@
     <h1 class="display-4"><span annaTranslate="home.title">Service for programmers!</span> (Linter)</h1>
 
     <p class="lead" annaTranslate="home.subtitle">This is your homepage</p>
-
     <div [ngSwitch]="account !== null">
       <div class="alert alert-success" *ngSwitchCase="true">
         <span id="home-logged-message" *ngIf="account" annaTranslate="home.logged.message" [translateValues]="{ username: account.login }"
@@ -20,15 +61,40 @@
         <a class="alert-link" (click)="login()" annaTranslate="global.messages.info.authenticated.link">sign in</a
         ><span annaTranslate="global.messages.info.authenticated.suffix"
           >, you can try the default accounts:<br />- Administrator (login="admin" and password="admin") <br />- User (login="user" and
-          password="user").</span
-        >
+          password="user").</span>
       </div>
 
       <div class="alert alert-warning" *ngSwitchCase="false">
         <span annaTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
         <a class="alert-link" routerLink="account/register" annaTranslate="global.messages.info.register.link">Register a new account</a>
       </div>
+      <div>
+        <div class="image-video-wrp">
+          <figure>
+            <ng-container *ngIf="videodisabled; else videoblock">
+              <img src="../content/images/video.png" usemap="#infographic" class="img-fluid thumblin">
+              <map name="infographic">
+                <area shape="poly" coords="130,147,200,107,254,219,130,228"
+                      href="https://developer.mozilla.org/docs/Web/HTML"
+                      target="_blank" alt="HTML" />
+              </map>
+
+            </ng-container>
+            <ng-template #videoblock>
+              <iframe>
+                <youtube-player videoId="GYAB4Td62zI" ></youtube-player>
+              </iframe>
+<!--              <iframe width="100%" height="100%" src="https://www.youtube.com/watch?v=pa4SeuwoKAc"></iframe>-->
+            </ng-template>
+            <div class="play-icon-box ">
+              <img (click)="changeImg()" [title]="play" [src]="videoIcon" alt="">
+            </div>
+          </figure>
+        </div>
+      </div>
     </div>
+
+
 
 <!--    <p annaTranslate="home.question">If you have any question on JHipster:</p>-->
 

@@ -14,15 +14,36 @@ import { Account } from 'app/core/auth/account.model';
 export class HomeComponent implements OnInit, OnDestroy {
   account: Account | null = null;
 
+  videoIcon = "..\\content\\images\\play.png";
+  play = "Play";
+  videodisabled = true;
+
   private readonly destroy$ = new Subject<void>();
 
   constructor(private accountService: AccountService, private router: Router) {}
+
+  changeImg(): void{
+    if(this.play === "Play")
+    {
+      this.play = "Pause",
+        this.videoIcon = "..\\content\\images\\stop.png",
+        this.videodisabled = false
+    }
+    else
+    {
+      this.videoIcon = "..\\content\\images\\play.png",
+        this.play = "Play",
+        this.videodisabled = true
+    }
+  }
+
 
   ngOnInit(): void {
     this.accountService
       .getAuthenticationState()
       .pipe(takeUntil(this.destroy$))
       .subscribe(account => (this.account = account));
+
   }
 
   login(): void {
@@ -33,4 +54,5 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+
 }
