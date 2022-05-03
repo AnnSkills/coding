@@ -145,5 +145,9 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "This is your footer"
+  "footer": {
+    "name": "Programmer helper application",
+    "desc": "Linters help to bring the code to a uniform style and avoid errors.",
+    "anna": "Automated code quality assessment system - Khomyakova A.A. 972303"
+  }
 }
