@@ -1,0 +1,15 @@
+{
+  "applications": ["linter"],
+  "changelogDate": "20220503083044",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "charts",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Charts",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

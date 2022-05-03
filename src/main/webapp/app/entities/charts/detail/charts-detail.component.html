@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="charts">
+      <h2 data-cy="chartsDetailsHeading"><span annaTranslate="linterApp.charts.detail.title">Charts</span></h2>
+
+      <hr />
+
+      <anna-alert-error></anna-alert-error>
+
+      <anna-alert></anna-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span annaTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ charts.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span annaTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/charts', charts.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span annaTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
