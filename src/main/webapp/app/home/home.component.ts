@@ -14,7 +14,7 @@ import { Account } from 'app/core/auth/account.model';
 export class HomeComponent implements OnInit, OnDestroy {
   account: Account | null = null;
 
-  videoIcon = "..\\content\\images\\play.png";
+  videoIcon = "..\\content\\images\\stop.png";
   play = "Play";
   videodisabled = true;
 
@@ -26,12 +26,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     if(this.play === "Play")
     {
       this.play = "Pause",
-        this.videoIcon = "..\\content\\images\\stop.png",
+        this.videoIcon = "..\\content\\images\\play.png",
         this.videodisabled = false
     }
     else
     {
-      this.videoIcon = "..\\content\\images\\play.png",
+      this.videoIcon = "..\\content\\images\\stop.png",
         this.play = "Play",
         this.videodisabled = true
     }

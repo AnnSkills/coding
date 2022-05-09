@@ -6,15 +6,15 @@
       "home": "Home",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "Entities",
-        "file": "File",
-        "versionFile": "Version File",
-        "bag": "Bag",
-        "task": "Task",
-        "post": "Post",
-        "rules": "Rules",
+        "main": "Access",
+        "file": "Source code",
+        "versionFile": "Version code",
+        "bag": "Bag-report",
+        "task": "Tasks",
+        "post": "Blog",
+        "rules": "Rules for linter",
         "support": "Support",
-        "charts": "Charts",
+        "charts": "Testing API",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

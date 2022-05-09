@@ -5,9 +5,9 @@
   }
 
   .image-video-wrp figure .thumblin {
-    height: 265px;
+    height: 315px;
     object-fit: cover;
-    width: 450px;
+    width: 560px;
     border: 2px solid #000;
     align-items: end;
   }
@@ -40,6 +40,14 @@
     left: 2px;
   }
 </style>
+
+<!--<head>-->
+<!--  <title>ehf</title>-->
+<!--  <script data-require="angular.js@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>-->
+<!--  <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<!--  &lt;!&ndash;  <link rel="stylesheet" href="style.css" />&ndash;&gt;-->
+<!--  <script src="script1.js"></script>-->
+<!--</head>-->
 <div class="row">
   <div class="col-md-3">
     <span class="hipster img-fluid rounded"></span>
@@ -55,42 +63,147 @@
           >You are logged in as user "{{ account.login }}".</span
         >
       </div>
+      <p>
+        Статический анализ кода это процесс выявления ошибок и недочетов в исходном коде программ.
+        Статический анализ можно рассматривать как автоматизированный процесс обзора кода.
+        Остановимся на обзоре кода чуть подробнее.
 
-      <div class="alert alert-warning" *ngSwitchCase="false">
+      </p>
+      <p>
+        Задачи, решаемые программами статического анализа кода можно разделить на 3 категории:
+        - Выявление ошибок в программах.
+        - Рекомендации по оформлению кода. Некоторые статические анализаторы позволяют проверять, соответствует ли исходный код, принятому в компании стандарту оформления кода. Имеется в виду контроль количества отступов в различных конструкциях, использование пробелов/символов табуляции и так далее.
+        - Подсчет метрик. Метрика программного обеспечения - это мера, позволяющая получить численное значение некоторого свойства программного обеспечения или его спецификаций. Существует большое количество разнообразных метрик, которые можно подсчитать, используя те ли иные инструменты.
+        Есть и другие способы использования инструментов статического анализа кода. Например, статический анализ можно использовать как метод контроля и обучения новых сотрудников, еще недостаточно знакомых с правилами программирования в компании.
+
+        Главное преимущество статического анализ состоит в возможности существенной снижении стоимости устранения дефектов в программе. Чем раньше ошибка выявлена, тем меньше стоимость ее исправления. Так согласно данным, приведенным в книге Макконнелла "Совершенный Код", исправление ошибки на этапе тестирования обойдется в десять раз дороже, чем на этапе конструирования (написания кода):
+      </p>
+
+      <!--<div class="alert alert-warning" *ngSwitchCase="false">
         <span annaTranslate="global.messages.info.authenticated.prefix">If you want to </span>
         <a class="alert-link" (click)="login()" annaTranslate="global.messages.info.authenticated.link">sign in</a
         ><span annaTranslate="global.messages.info.authenticated.suffix"
           >, you can try the default accounts:<br />- Administrator (login="admin" and password="admin") <br />- User (login="user" and
           password="user").</span>
-      </div>
+      </div>-->
 
       <div class="alert alert-warning" *ngSwitchCase="false">
         <span annaTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
         <a class="alert-link" routerLink="account/register" annaTranslate="global.messages.info.register.link">Register a new account</a>
       </div>
       <div>
+
+
+<!--        <div ng-app="desktopApp1">-->
+
+
+<!--          <h1>Angular + Youtube Iframe API!</h1>-->
+
+<!--          <div ng-controller="PlayerController">-->
+<!--            <div id="yplayer"></div>-->
+<!--            <div class="controls">-->
+<!--              <img src="http://placehold.it/100x60/36C/fff" alt="one" ng-click="changeSlide('pco91kroVgQ')" />-->
+<!--              <img src="http://placehold.it/100x60/F36/fff" alt="two" ng-click="changeSlide('LrUvu1mlWco')" />-->
+<!--              <img src="http://placehold.it/100x60/093/fff" alt="three" ng-click="changeSlide('CevxZvSJLk8')" />-->
+
+
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
         <div class="image-video-wrp">
+<!--          <iframe width="560" height="315" src="https://www.youtube.com/embed/Ud-u6tkaPsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--          <script>-->
+<!--            // 2. This code loads the IFrame Player API code asynchronously.-->
+<!--            let tag = document.createElement('script');-->
+
+<!--            tag.src = "https://www.youtube.com/iframe_api";-->
+<!--            let firstScriptTag = document.getElementsByTagName('script')[0];-->
+<!--            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);-->
+
+<!--            // 3. This function creates an <iframe> (and YouTube player)-->
+<!--            //    after the API code downloads.-->
+<!--            let player;-->
+<!--            function onYouTubeIframeAPIReady() {-->
+<!--              player = new YT.Player('player', {-->
+<!--                height: '360',-->
+<!--                width: '640',-->
+<!--                videoId: 'M7lc1UVf-VE',-->
+<!--                events: {-->
+<!--                  'onReady': onPlayerReady,-->
+<!--                  'onStateChange': onPlayerStateChange-->
+<!--                }-->
+<!--              });-->
+<!--            }-->
+
+<!--            // 4. The API will call this function when the video player is ready.-->
+<!--            function onPlayerReady(event) {-->
+<!--              event.target.playVideo();-->
+<!--            }-->
+
+<!--            // 5. The API calls this function when the player's state changes.-->
+<!--            //    The function indicates that when playing a video (state=1),-->
+<!--            //    the player should play for six seconds and then stop.-->
+<!--           let done = false;-->
+<!--            function onPlayerStateChange(event) {-->
+<!--              if (event.data == YT.PlayerState.PLAYING && !done) {-->
+<!--                setTimeout(stopVideo, 6000);-->
+<!--                done = true;-->
+<!--              }-->
+<!--            }-->
+<!--            function stopVideo() {-->
+<!--              player.stopVideo();-->
+<!--            }-->
+<!--          </script>-->
           <figure>
             <ng-container *ngIf="videodisabled; else videoblock">
-              <img src="../content/images/video.png" usemap="#infographic" class="img-fluid thumblin">
+<!--              <img src="../content/images/video.png" usemap="#infographic" class="img-fluid thumblin">-->
+<!--              <video src="../content/images/попытка 2.mov"></video>-->
+
+
+<!--              <iframe id="player" type="text/html" width="640" height="360"-->
+<!--                      src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"-->
+
+<!--                      frameborder="0"></iframe>-->
+              <iframe
+                width="560px"
+                height="315px"
+                src="https://www.youtube.com/embed/li_9PBrcOcQ"
+                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}
+    html,body{height:100%}
+    img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}
+    span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}
+    </style>
+
+    <a href=https://www.youtube.com/embed/li_9PBrcOcQ?autoplay=1>
+    <img src=../content/images/video.png alt='Demo video'>
+    <span>▶</span>
+    </a>"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                title="Demo video"
+                usemap="#infographic" class="img-fluid thumblin">
+              </iframe>
               <map name="infographic">
                 <area shape="poly" coords="130,147,200,107,254,219,130,228"
-                      href="https://developer.mozilla.org/docs/Web/HTML"
+                      href="https://www.youtube.com/watch?v=AyNefDoyD4Y&t=1s"
                       target="_blank" alt="HTML" />
               </map>
 
             </ng-container>
             <ng-template #videoblock>
-              <iframe>
-                <youtube-player videoId="GYAB4Td62zI" ></youtube-player>
-              </iframe>
-<!--              <iframe width="100%" height="100%" src="https://www.youtube.com/watch?v=pa4SeuwoKAc"></iframe>-->
+<!--              <iframe>-->
+<!--                <youtube-player videoId="GYAB4Td62zI" ></youtube-player>-->
+<!--              </iframe>-->
+<!--&lt;!&ndash;              <iframe width="100%" height="100%" src="https://www.youtube.com/watch?v=pa4SeuwoKAc"></iframe>&ndash;&gt;-->
             </ng-template>
-            <div class="play-icon-box ">
+            <div class="play-icon-box">
               <img (click)="changeImg()" [title]="play" [src]="videoIcon" alt="">
             </div>
           </figure>
         </div>
+        </div>
+
       </div>
     </div>
 
@@ -141,4 +254,4 @@
 <!--      >!-->
 <!--    </p>-->
   </div>
-</div>
+

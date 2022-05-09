@@ -1,51 +1,284 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    font-family: "Roboto", sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-container {
+    background: #13151f;
+    color: #abafc6;
+    border-radius: 5px;
+    padding: 20px;
+    width: 440px;
+    height: 350px;
+  }
+
+  .year-stats {
+    white-space: nowrap;
+    max-height: 170px;
+    overflow: hidden;
+  }
+
+  .year-stats:hover {
+    overflow-x: auto;
+  }
+
+  ::-webkit-scrollbar {
+    height: 5px;
+    width: 100%;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #2b3150;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #abafc6;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #5397d6;
+  }
+
+  .month-group {
+    cursor: pointer;
+    max-width: 400px;
+    height: 110px;
+    margin: 10px;
+    display: inline-block;
+  }
+
+  .bar {
+    background-color: #abafc6;
+    width: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .month-group:hover .bar,
+  .selected .bar {
+    background: #5397d6;
+  }
+
+  .month-group:hover p,
+  .selected p {
+    color: #fff;
+  }
+
+  .h-25 {
+    height: 25%;
+  }
+  .h-50 {
+    height: 50%;
+  }
+  .h-75 {
+    height: 75%;
+  }
+  .h-100 {
+    height: 100%;
+  }
+
+  .stats-info {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  .graph-container {
+    position: relative;
+  }
+
+  .percent {
+    display: block;
+    width: 120px;
+    height: 120px;
+  }
+
+  .circle {
+    stroke: #915db1;
+    fill: none;
+    stroke-width: 3;
+  }
+
+  .circle:nth-child(2) {
+    stroke: #e59f3c;
+  }
+
+  .circle:nth-child(3) {
+    stroke: #5397d6;
+  }
+
+  .circle:nth-child(4) {
+    stroke: #4cc790;
+  }
+
+  .graph-container p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .info p {
+    margin-bottom: 10px;
+  }
+
+  .info span {
+    color: #fff;
+  }
+
+</style>
 <div>
   <h2>
-    <span id="metrics-page-heading" annaTranslate="metrics.title" data-cy="metricsPageHeading">Application Metrics</span>
+    <span id="metrics-page-heading" annaTranslate="metrics.title" data-cy="metricsPageHeading">
+      Статистика приложения</span>
 
     <button class="btn btn-primary float-end" (click)="refresh()">
-      <fa-icon icon="sync"></fa-icon> <span annaTranslate="metrics.refresh.button">Refresh</span>
+      <fa-icon icon="sync"></fa-icon> <span annaTranslate="metrics.refresh.button">Обновить</span>
     </button>
+
   </h2>
+<!--  <div>Процент файлов, которые имеют версии </div>-->
+<!--  <div class="row" *ngIf="metrics && !updatingMetrics">-->
+    <anna-jvm-memory class="col-md-4"></anna-jvm-memory>
 
-  <h3 annaTranslate="metrics.jvm.title">JVM Metrics</h3>
 
-  <div class="row" *ngIf="metrics && !updatingMetrics">
-    <anna-jvm-memory class="col-md-4" [updating]="updatingMetrics" [jvmMemoryMetrics]="metrics.jvm"></anna-jvm-memory>
 
-    <anna-jvm-threads class="col-md-4" [threads]="threads"></anna-jvm-threads>
+<!--    <anna-metrics-system class="col-md-4" [updating]="updatingMetrics" [systemMetrics]="metrics.processMetrics"></anna-metrics-system>-->
+<!--  </div>-->
 
-    <anna-metrics-system class="col-md-4" [updating]="updatingMetrics" [systemMetrics]="metrics.processMetrics"></anna-metrics-system>
+  <div class="main-container" style="position: relative">
+    <div class="year-stats">
+      <div class="month-group">
+        <div class="bar h-100"></div>
+        <p class="month">Jan</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-50"></div>
+        <p class="month">Feb</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-75"></div>
+        <p class="month">Mar</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-25"></div>
+        <p class="month">Apr</p>
+      </div>
+      <div class="month-group selected">
+        <div class="bar h-100"></div>
+        <p class="month">May</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-50"></div>
+        <p class="month">Jun</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-75"></div>
+        <p class="month">Jul</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-25"></div>
+        <p class="month">Aug</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-50"></div>
+        <p class="month">Sep</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-75"></div>
+        <p class="month">Oct</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-25"></div>
+        <p class="month">Nov</p>
+      </div>
+      <div class="month-group">
+        <div class="bar h-100"></div>
+        <p class="month">Dez</p>
+      </div>
+    </div>
+
+    <div class="stats-info" >
+      <div class="graph-container">
+        <div class="percent">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+      a 15.9155 15.9155 0 0 1 0 31.831
+      a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="circle" stroke-dasharray="85, 100" d="M18 2.0845
+      a 15.9155 15.9155 0 0 1 0 31.831
+      a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845
+      a 15.9155 15.9155 0 0 1 0 31.831
+      a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="circle" stroke-dasharray="30, 100" d="M18 2.0845
+      a 15.9155 15.9155 0 0 1 0 31.831
+      a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+        </div>
+        <p>Total: 135</p>
+      </div>
+
+      <div class="info">
+        <p>Most expensive category <br /><span>Restaurants & Dining</span></p>
+        <p>Updated categories <span>2</span></p>
+        <p>Bonus payments <span>$92</span></p>
+      </div>
+    </div>
+
   </div>
+  <anna-jvm-threads class="col-md-4" ></anna-jvm-threads>
+<!--  <anna-metrics-garbagecollector-->
+<!--    *ngIf="metrics && metricsKeyExists('garbageCollector')"-->
+<!--    [updating]="updatingMetrics"-->
+<!--    [garbageCollectorMetrics]="metrics.garbageCollector"-->
+<!--  ></anna-metrics-garbagecollector>-->
 
-  <anna-metrics-garbagecollector
-    *ngIf="metrics && metricsKeyExists('garbageCollector')"
-    [updating]="updatingMetrics"
-    [garbageCollectorMetrics]="metrics.garbageCollector"
-  ></anna-metrics-garbagecollector>
+<!--  <div class="well well-lg" *ngIf="updatingMetrics" annaTranslate="metrics.updating">Updating...</div>-->
 
-  <div class="well well-lg" *ngIf="updatingMetrics" annaTranslate="metrics.updating">Updating...</div>
+<!--  <anna-metrics-request-->
+<!--    *ngIf="metrics && metricsKeyExists('http.server.requests')"-->
+<!--    [updating]="updatingMetrics"-->
+<!--    [requestMetrics]="metrics['http.server.requests']"-->
+<!--  ></anna-metrics-request>-->
 
-  <anna-metrics-request
-    *ngIf="metrics && metricsKeyExists('http.server.requests')"
-    [updating]="updatingMetrics"
-    [requestMetrics]="metrics['http.server.requests']"
-  ></anna-metrics-request>
+<!--  <anna-metrics-endpoints-requests-->
+<!--    *ngIf="metrics && metricsKeyExists('services')"-->
+<!--    [updating]="updatingMetrics"-->
+<!--    [endpointsRequestsMetrics]="metrics.services"-->
+<!--  ></anna-metrics-endpoints-requests>-->
 
-  <anna-metrics-endpoints-requests
-    *ngIf="metrics && metricsKeyExists('services')"
-    [updating]="updatingMetrics"
-    [endpointsRequestsMetrics]="metrics.services"
-  ></anna-metrics-endpoints-requests>
+<!--  <anna-metrics-cache-->
+<!--    *ngIf="metrics && metricsKeyExists('cache')"-->
+<!--    [updating]="updatingMetrics"-->
+<!--    [cacheMetrics]="metrics.cache"-->
+<!--  ></anna-metrics-cache>-->
 
-  <anna-metrics-cache
-    *ngIf="metrics && metricsKeyExists('cache')"
-    [updating]="updatingMetrics"
-    [cacheMetrics]="metrics.cache"
-  ></anna-metrics-cache>
+<!--  <anna-metrics-datasource-->
+<!--    *ngIf="metrics && metricsKeyExistsAndObjectNotEmpty('databases')"-->
+<!--    [updating]="updatingMetrics"-->
+<!--    [datasourceMetrics]="metrics.databases"-->
+<!--  ></anna-metrics-datasource>-->
 
-  <anna-metrics-datasource
-    *ngIf="metrics && metricsKeyExistsAndObjectNotEmpty('databases')"
-    [updating]="updatingMetrics"
-    [datasourceMetrics]="metrics.databases"
-  ></anna-metrics-datasource>
+
 </div>

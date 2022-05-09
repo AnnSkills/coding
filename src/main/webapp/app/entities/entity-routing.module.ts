@@ -39,11 +39,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'linterApp.support.home.title' },
         loadChildren: () => import('./support/support.module').then(m => m.SupportModule),
       },
-      {
-        path: 'charts',
-        data: { pageTitle: 'linterApp.charts.home.title' },
-        loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule),
-      },
+      // {
+      //   path: 'charts',
+      //   data: { pageTitle: 'linterApp.charts.home.title' },
+      //   loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule),
+      // },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

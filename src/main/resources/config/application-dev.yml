@@ -35,10 +35,6 @@ spring:
     url: jdbc:mysql://localhost:3306/linnter
     username: root
     password: 12345678
-#    type: com.zaxxer.hikari.HikariDataSource
-#    url: jdbc:h2:file:./target/h2db/db/linter;DB_CLOSE_DELAY=-1
-#    username: linter
-#    password:
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -47,14 +43,11 @@ spring:
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
-#  h2:
-#    console:
-#      # disable spring boot built-in h2-console since we start it manually with correct configuration
-#      enabled: false
+
   jpa:
-#    database-platform: tech.jhipster.domain.util.FixedH2Dialect
+
   liquibase:
-    # Remove 'faker' if you do not want the sample data to be loaded automatically
+
     contexts: dev, faker
   mail:
     host: smtp.gmail.com
@@ -62,18 +55,13 @@ spring:
     username: yaroshludmilanick@gmail.com
     password: roundball06
   messages:
-    cache-duration: PT1S # 1 second, see the ISO 8601 standard
+    cache-duration: PT1S
   thymeleaf:
     cache: false
 
 server:
   port: 8080
 
-# ===================================================================
-# JHipster specific properties
-#
-# Full reference is available at: https://www.jhipster.tech/common-application-properties/
-# ===================================================================
 
 jhipster:
   cache: # Cache configuration

@@ -50,7 +50,7 @@
             <a *ngIf="file.sourceCode" (click)="openFile(file.sourceCode, file.sourceCodeContentType)" annaTranslate="entity.action.open"
               >open</a
             >
-            <span *ngIf="file.sourceCode">{{ file.sourceCodeContentType }}, {{ byteSize(file.sourceCode) }}</span>
+            <span *ngIf="file.sourceCode">{{ byteSize(file.sourceCode) }}</span>
           </td>
           <td>{{ file.creationDate | formatMediumDatetime }}</td>
           <td>
@@ -71,6 +71,12 @@
               <button type="submit" (click)="delete(file)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                 <fa-icon icon="times"></fa-icon>
                 <span class="d-none d-md-inline" annaTranslate="entity.action.delete">Delete</span>
+              </button>
+<!--              <button type="submit"  (click)="openFile('B@2e7c296f','text/plain')" class="btn btn-danger btn-sm" >-->
+              <button type="submit" *ngIf="file.sourceCode" (click)="openFile(file.sourceCode, file.sourceCodeContentType)">
+<!--              <a *ngIf="file.sourceCode" (click)="openFile(file.sourceCode, file.sourceCodeContentType)"></a>-->
+<!--              <span *ngIf="file.sourceCode">{{ file.sourceCodeContentType }}, {{ byteSize(file.sourceCode) }}</span>-->
+                <span class="d-none d-md-inline">Линтинг</span>
               </button>
             </div>
           </td>

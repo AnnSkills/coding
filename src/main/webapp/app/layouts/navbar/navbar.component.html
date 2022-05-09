@@ -39,7 +39,7 @@
           <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu" data-cy="entity">
             <span>
               <fa-icon icon="th-list"></fa-icon>
-              <span annaTranslate="global.menu.entities.main">Entities</span>
+              <span annaTranslate="global.menu.entities.main">Access</span>
             </span>
           </a>
           <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
@@ -136,7 +136,7 @@
                 (click)="collapseNavbar()"
               >
                 <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                <span annaTranslate="global.menu.entities.charts">Charts</span>
+                <span annaTranslate="global.menu.entities.charts">Testing API</span>
               </a>
             </li>
             <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
@@ -169,12 +169,12 @@
                 <span annaTranslate="global.menu.admin.metrics">Metrics</span>
               </a>
             </li>
-            <li>
-              <a class="dropdown-item" routerLink="admin/health" routerLinkActive="active" (click)="collapseNavbar()">
-                <fa-icon icon="heart" [fixedWidth]="true"></fa-icon>
-                <span annaTranslate="global.menu.admin.health">Health</span>
-              </a>
-            </li>
+<!--            <li>-->
+<!--              <a class="dropdown-item" routerLink="admin/health" routerLinkActive="active" (click)="collapseNavbar()">-->
+<!--                <fa-icon icon="heart" [fixedWidth]="true"></fa-icon>-->
+<!--                <span annaTranslate="global.menu.admin.health">Health</span>-->
+<!--              </a>-->
+<!--            </li>-->
             <li>
               <a class="dropdown-item" routerLink="admin/configuration" routerLinkActive="active" (click)="collapseNavbar()">
                 <fa-icon icon="cogs" [fixedWidth]="true"></fa-icon>
@@ -187,19 +187,19 @@
                 <span annaTranslate="global.menu.admin.logs">Logs</span>
               </a>
             </li>
-            <li *ngIf="openAPIEnabled">
-              <a class="dropdown-item" routerLink="admin/docs" routerLinkActive="active" (click)="collapseNavbar()">
-                <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
-                <span annaTranslate="global.menu.admin.apidocs">API</span>
-              </a>
-            </li>
+<!--            <li *ngIf="openAPIEnabled">-->
+<!--              <a class="dropdown-item" routerLink="admin/docs" routerLinkActive="active" (click)="collapseNavbar()">-->
+<!--                <fa-icon icon="book" [fixedWidth]="true"></fa-icon>-->
+<!--                <span annaTranslate="global.menu.admin.apidocs">API</span>-->
+<!--              </a>-->
+<!--            </li>-->
             <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
-            <li *ngIf="!inProduction">
-              <a class="dropdown-item" href="./h2-console/" target="_tab" (click)="collapseNavbar()">
-                <fa-icon icon="database" [fixedWidth]="true"></fa-icon>
-                <span annaTranslate="global.menu.admin.database">Database</span>
-              </a>
-            </li>
+<!--            <li *ngIf="!inProduction">-->
+<!--              <a class="dropdown-item" href="./h2-console/" target="_tab" (click)="collapseNavbar()">-->
+<!--                <fa-icon icon="database" [fixedWidth]="true"></fa-icon>-->
+<!--                <span annaTranslate="global.menu.admin.database">Database</span>-->
+<!--              </a>-->
+<!--            </li>-->
           </ul>
         </li>
         <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">
